@@ -1,33 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [startEngineer, setStartEngineer] = useState(2021)
+
+  useEffect(() => {
+    const now: Date = new Date();
+    setStartEngineer(startEngineer)
+    setStartEngineer(now.getFullYear())
+    const engineeringHistory: number = now.getFullYear() - startEngineer
+    console.log("engineeringHistory: ", engineeringHistory)
+    setStartEngineer(engineeringHistory)
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <h1>
+          ittyi.jp
+        </h1>
+      </header>
+      <main>
+        <ul>
+          <li>Backend Engineer: {startEngineer} year</li>
+          <li>former athletic instructor/personal trainer: 4 year</li>
+          <li><a href="https://twitter.com/42_loves">X(twitter)</a></li>
+        </ul>
+      </main>
     </>
   )
 }
