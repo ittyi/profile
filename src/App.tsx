@@ -8,10 +8,7 @@ function App() {
 
   useEffect(() => {
     const now: Date = new Date();
-    setStartEngineer(startEngineer)
-    setStartEngineer(now.getFullYear())
     const engineeringHistory: number = now.getFullYear() - startEngineer
-    console.log("engineeringHistory: ", engineeringHistory)
     setStartEngineer(engineeringHistory)
   }, []);
 
