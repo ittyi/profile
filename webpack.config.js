@@ -1,5 +1,6 @@
 const path = require('path');
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
     mode: 'development',
@@ -31,6 +32,20 @@ module.exports = {
                         ]
                     }
                 }
+            },
+            {
+                test: /\.node$/,
+                use: "node-loader"
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: "swc-loader",
+                    options: {
+                        parseMap: true// babel-loader とともに使用する場合に必要 https://swc.rs/docs/usage/swc-loader#with-babel-loader
+                    }
+                }
             }
         ],
     },
@@ -47,9 +62,11 @@ module.exports = {
         clean: true,
     },
     plugins: [
-        new NodePolyfillPlugin()
+        new NodePolyfillPlugin()// Polyfill 設定?
     ],
     stats: {
         warningsFilter: /^(?!CriticalDependenciesWarning$)/
-    }
+    },
+    externalsPresets: { node: true },
+    externals: [nodeExternals()],
 };
