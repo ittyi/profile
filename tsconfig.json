@@ -11,12 +11,10 @@
     "allowSyntheticDefaultImports" : true,
 
     /* Bundler mode */
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,
