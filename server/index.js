@@ -1,4 +1,8 @@
-const express = require('express')
+import express from "express";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import App from "../src/App";
+
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 
@@ -17,7 +21,24 @@ app.use(
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
+    const app = ReactDOMServer.renderToString(<App />);
+
+    const html = `
+        <html lang="en">
+        <head>
+            <script src="client.js" async defer></script>
+        </head>
+        <body>
+            <div id="root">${app}</div>
+        </body>
+        </html>
+    `;
+
+    // コンポーネントが埋め込まれたHTMLをレスポンス
+    res.send(html);
 })
+
+app.use(express.static("./build"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
