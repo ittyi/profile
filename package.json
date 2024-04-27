@@ -10,19 +10,23 @@
     "preview": "vite preview",
     "rebuild": "vite build && rm -R docs && cp -r dist docs",
     "watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open --stats-error-details"
   },
   "dependencies": {
+    "node-polyfill-webpack-plugin": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "babel-loader": "^9.1.3",
     "css-loader": "^7.1.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
