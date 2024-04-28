@@ -15,7 +15,18 @@
   \*************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var express = __webpack_require__(/*! express */ \"express\");\nvar React = __webpack_require__(/*! react */ \"react\");\nvar ReactDOMServer = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\nvar AppServer = (__webpack_require__(/*! ../src/AppServer */ \"./src/AppServer.tsx\")[\"default\"]);\nvar path = __webpack_require__(/*! path */ \"path\");\nvar app = express();\nvar PORT = process.env.PORT || 9000;\napp.get('/', function (req, res) {\n  var content = ReactDOMServer.renderToString( /*#__PURE__*/React.createElement(AppServer, null));\n  var html = \"\\n    <!DOCTYPE html>\\n    <html lang=\\\"en\\\">\\n      <head>\\n        <meta charset=\\\"UTF-8\\\" />\\n        <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\" />\\n        <title>React SSR</title>\\n      </head>\\n      <body>\\n        <div id=\\\"root\\\">\".concat(content, \"</div>\\n      </body>\\n    </html>\\n  \");\n  res.send(html);\n});\napp.use(express[\"static\"](path.resolve(__dirname, '../build')));\napp.listen(PORT, function () {\n  console.log(\"Server is listening on port \".concat(PORT));\n});\n\n//# sourceURL=webpack:///./server/index.js?");
+eval("var express = __webpack_require__(/*! express */ \"express\");\nvar React = __webpack_require__(/*! react */ \"react\");\nvar ReactDOMServer = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\nvar AppServer = (__webpack_require__(/*! ../src/AppServer */ \"./src/AppServer.tsx\")[\"default\"]);\nvar path = __webpack_require__(/*! path */ \"path\");\nvar app = express();\nvar PORT = process.env.PORT || 9000;\napp.get('/', function (req, res) {\n  var content = ReactDOMServer.renderToString( /*#__PURE__*/React.createElement(AppServer, null));\n  var html = \"\\n    <!DOCTYPE html>\\n    <html lang=\\\"en\\\">\\n      <head>\\n        <meta charset=\\\"UTF-8\\\" />\\n        <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\" />\\n        <title>React SSR</title>\\n        <link rel=\\\"stylesheet\\\" href=\\\"./main.css\\\">\\n      </head>\\n      <body>\\n        <div id=\\\"root\\\">\".concat(content, \"</div>\\n      </body>\\n    </html>\\n  \");\n  res.send(html);\n});\napp.use(express[\"static\"](path.resolve(__dirname, '../build')));\napp.listen(PORT, function () {\n  console.log(\"Server is listening on port \".concat(PORT));\n});\n\n//# sourceURL=webpack:///./server/index.js?");
+
+/***/ }),
+
+/***/ "./src/AppServer.css":
+/*!***************************!*\
+  !*** ./src/AppServer.css ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack:///./src/AppServer.css?");
 
 /***/ }),
 
@@ -26,7 +37,7 @@ eval("var express = __webpack_require__(/*! express */ \"express\");\nvar React 
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    var desc = Object.getOwnPropertyDescriptor(m, k);\n    if (!desc || (\"get\" in desc ? !m.__esModule : desc.writable || desc.configurable)) {\n      desc = { enumerable: true, get: function() { return m[k]; } };\n    }\n    Object.defineProperty(o, k2, desc);\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importStar(__webpack_require__(/*! react */ \"react\"));\nconst AppServer = () => {\n    const [startEngineer, setStartEngineer] = (0, react_1.useState)(2021);\n    (0, react_1.useEffect)(() => {\n        const now = new Date();\n        const engineeringHistory = now.getFullYear() - startEngineer;\n        setStartEngineer(engineeringHistory);\n    }, []);\n    return (react_1.default.createElement(\"div\", null,\n        react_1.default.createElement(\"main\", null,\n            react_1.default.createElement(\"h1\", null, \"ittyi.jp\"),\n            react_1.default.createElement(\"ul\", null,\n                react_1.default.createElement(\"li\", null,\n                    \"Backend Engineer: \",\n                    startEngineer,\n                    \" year\"),\n                react_1.default.createElement(\"li\", null, \"former athletic instructor/personal trainer: 4 year\"),\n                react_1.default.createElement(\"li\", null,\n                    react_1.default.createElement(\"a\", { href: \"https://twitter.com/42_loves\" }, \"X(twitter)\"))))));\n};\nexports[\"default\"] = AppServer;\n\n\n//# sourceURL=webpack:///./src/AppServer.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\n__webpack_require__(/*! ./AppServer.css */ \"./src/AppServer.css\");\nconst AppServer = () => {\n    const startEngineer = 2021;\n    const now = new Date();\n    const engineeringHistory = now.getFullYear() - startEngineer;\n    return (react_1.default.createElement(\"div\", null,\n        react_1.default.createElement(\"main\", null,\n            react_1.default.createElement(\"h1\", null, \"ittyi.jp\"),\n            react_1.default.createElement(\"ul\", null,\n                react_1.default.createElement(\"li\", null,\n                    \"Backend Engineer: \",\n                    engineeringHistory,\n                    \" year\"),\n                react_1.default.createElement(\"li\", null, \"former athletic instructor/personal trainer: 4 year\"),\n                react_1.default.createElement(\"li\", null,\n                    react_1.default.createElement(\"a\", { href: \"https://twitter.com/42_loves\" }, \"X(twitter)\"))))));\n};\nexports[\"default\"] = AppServer;\n\n\n//# sourceURL=webpack:///./src/AppServer.tsx?");
 
 /***/ }),
 
@@ -99,6 +110,18 @@ module.exports = require("path");
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
