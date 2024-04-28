@@ -9,3 +9,8 @@ ul {
     list-style: none;
     padding: 0;
 }
+
+main {
+    text-align: center;
+    padding-top: 100px;
+}
