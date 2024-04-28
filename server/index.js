@@ -3,6 +3,7 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const AppServer = require('../src/AppServer').default;
 
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -24,6 +25,8 @@ app.get('/', (req, res) => {
 
     res.send(html);
 });
+
+app.use(express.static(path.resolve(__dirname, '../build')));
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);

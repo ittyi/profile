@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build:server": "webpack --config webpack.server.js",
-    "start:server": "node build/server.js"
+    "start:server": "node build/server.js",
+    "build:client": "npm run build"
   },
   "dependencies": {
     "express": "^4.19.2",
