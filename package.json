@@ -2,7 +2,8 @@
   "scripts": {
     "build:server": "webpack --config webpack.server.js",
     "start:server": "node build/server.js",
-    "build:client": "npm run build"
+    "build:client": "npm run build",
+    "build:docs": "webpack --config webpack.docs.js && node build/prerender.js"
   },
   "dependencies": {
     "express": "^4.19.2",
