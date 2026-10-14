@@ -14,6 +14,12 @@ const cssRule = {
     test: /\.css$/i,
     use: [MiniCssExtractPlugin.loader, "css-loader"],
 };
+// prerender では HTML を作るだけで CSS は使わない。ファイルに書き出すと
+// SSR サーバー用の build/main.css を上書きしてしまうため、出力を止める。
+const cssRuleNoEmit = {
+    test: /\.css$/i,
+    use: [{ loader: MiniCssExtractPlugin.loader, options: { emit: false } }, "css-loader"],
+};
 const resolve = { extensions: ['.ts', '.tsx', '.js'] };
 
 const client = {
@@ -43,7 +49,7 @@ const prerender = {
         filename: 'prerender.js',
         path: path.resolve(__dirname, 'build'),
     },
-    module: { rules: [tsRule, cssRule] },
+    module: { rules: [tsRule, cssRuleNoEmit] },
     resolve,
     plugins: [new MiniCssExtractPlugin()],
 };
