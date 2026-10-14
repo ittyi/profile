@@ -14,7 +14,7 @@ const AppServer = () => {
           ittyi.jp
         </h1>
         <ul>
-          <li>Backend Engineer: {engineeringHistory} year</li>
+          <li>Software Engineer: {engineeringHistory} year</li>
           <li>former athletic instructor/personal trainer: 4 year</li>
           <li><a href="https://twitter.com/42_loves">X(twitter)</a></li>
         </ul>
